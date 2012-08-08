@@ -14,9 +14,17 @@ class CarouselImage extends Page {
 	
 	function getCMSFields() {
 
+		// Settings for UploadFields : Main Image
+
+		$UploadField = new UploadField("CarouselImage", _t('Content.CarouselImage','Carousel image'));
+		$UploadField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
+		$UploadField->setFolderName('Uploads/CarouselImages');
+
+		// Create Tabs
+
     	$fields = parent::getCMSFields();
 		$fields->addFieldToTab('Root.CarouselImage', new HtmlEditorField("Caption", _t('Content.CAPTION','Caption')));
-		$fields->addFieldToTab('Root.CarouselImage', new UploadField("CarouselImage", _t('Content.CarouselImage','Carousel image')));
+		$fields->addFieldToTab('Root.Main', $UploadField);
 		$fields->removeFieldFromTab('Root.Main', 'Content');
 
 	return $fields;

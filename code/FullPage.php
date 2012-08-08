@@ -16,10 +16,20 @@ class FullPage extends Page {
 	
 	
 	function getCMSFields() {
+
+		// Settings for UploadFields : Main Image
+
+		$UploadField = new UploadField("MainImage", _t('Content.MAINIMAGE','Main image'));
+		$UploadField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
+		$UploadField->setFolderName('Uploads');
+
+		// Create Tabs
+
     	$fields = parent::getCMSFields();
+
 		$fields->addFieldToTab('Root.Main', new TextField("Subtitle", _t('Content.SUBTITLE','Subtitle under the title')));
 		$fields->addFieldToTab('Root.Main', new TextField("IntroTxtBefore", _t('Content.INTROTXTBEFORE','Introduction text before main image')));
-		$fields->addFieldToTab("Root.Main", new UploadField("MainImage", _t('Content.MAINIMAGE','Main image')));
+		$fields->addFieldToTab('Root.Main', $UploadField);
 		$fields->addFieldToTab('Root.Main', new TextField("IntroTxtAfter", _t('Content.INTROTXTAFTER','Introduction text after main image')));
         $fields->addFieldToTab('Root.Main', new TextField("Author", _t('Content.AUTHOR','Author')));
 		$fields->addFieldToTab('Root.Main', $dateField = new DateField("Date", _t('Content.DATE','Date')));

@@ -17,10 +17,20 @@ class Slide extends Page {
 	
 	function getCMSFields() {
 
+		// Settings for UploadFields : Main Image
+
+		$UploadField = new UploadField("SlideImage", _t('Content.SLIDEIMAGE','Slide image'));
+		$UploadField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
+		$UploadField->setFolderName('Uploads/CarouselImages');
+
+		// Create Tabs
+
     	$fields = parent::getCMSFields();
 		$fields->addFieldToTab('Root.Main', new TextField("Subtitle", _t('Content.SUBTITLE','Subtitle under the title')));
 		$fields->addFieldToTab('Root.Main', new HtmlEditorField("SlideContent", _t('Content.SLIDECONTENT','Slide content')));
-		$fields->addFieldToTab("Root.Main", new UploadField("SlideImage", _t('Content.SLIDEIMAGE','Slide image')));
+
+		$fields->addFieldToTab('Root.Main', $UploadField);
+
 		$fields->addFieldToTab("Root.Main", new DropdownField('SlideEffect',_t('Content.SLIDEEFFECT','Choose an effect'), $this->dbObject('SlideEffect')->enumValues()));
 		$fields->addFieldToTab("Root.Main", new DropdownField('SlideTxtDisplay',_t('Content.SLIDETXTDISPLAY','Do you want to display text over the slide image?'), $this->dbObject('SlideTxtDisplay')->enumValues()));
 		$fields->removeFieldFromTab('Root.Main', 'Content');

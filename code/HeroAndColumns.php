@@ -33,29 +33,67 @@ class HeroAndColumns extends Page {
 
 	
 	function getCMSFields() {
+
+		// Settings for UploadFields : Hero Image
+
+		$UploadField = new UploadField("HeroBackgroundImage", _t('Content.HEROBACKGROUNDIMAGE','Hero element background image'));
+		$UploadField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
+		$UploadField->setFolderName('Uploads');
+
+		// Settings for UploadFields : #1 Column Hero Image
+
+		$UploadField2 = new UploadField("Column1Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'));
+		$UploadField2->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
+		$UploadField2->setFolderName('Uploads');
+
+		// Settings for UploadFields : #2 Column Hero Image
+
+		$UploadField3 = new UploadField("Column2Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'));
+		$UploadField3->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
+		$UploadField3->setFolderName('Uploads');
+
+		// Settings for UploadFields : #3 Column Hero Image
+
+		$UploadField4 = new UploadField("Column3Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'));
+		$UploadField4->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
+		$UploadField4->setFolderName('Uploads');
+
+		// Settings for UploadFields : #4 Column Hero Image
+
+		$UploadField5 = new UploadField("Column4Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'));
+		$UploadField5->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
+		$UploadField5->setFolderName('Uploads');
+
+		// Create Tabs
+
     	$fields = parent::getCMSFields();
+
 		$fields->addFieldToTab('Root.Main', new TextField("HeroTitle", _t('Content.HEROTITLE','Hero element title')));
 		$fields->addFieldToTab('Root.Main', new TextField("Subtitle", _t('Content.SUBTITLE','Subtitle under the title')));
 		$fields->addFieldToTab('Root.Main', new HtmlEditorField("HeroContent", _t('Content.HEROCONTENT','Hero content')));
-		$fields->addFieldToTab('Root.Main', new UploadField("HeroBackgroundImage", _t('Content.HEROBACKGROUNDIMAGE','Hero element background image')));
+		$fields->addFieldToTab('Root.Main', $UploadField);
 		$fields->addFieldToTab('Root.Main', new TextField("HeroButtonTxt", _t('Content.HEROBUTTONTXT','Hero button text')));
 		$fields->addFieldToTab('Root.Main', new TreeDropdownField('HeroLinkLocID', 'Hero Link Location', 'SiteTree'));
 		$fields->removeFieldFromTab('Root.Main', 'Content');
+
 		$fields->addFieldToTab('Root.Column1', new TextField("Column1Title", _t('Content.COLUMNTITLE','Column title')));	
 		$fields->addFieldToTab('Root.Column1', new HtmlEditorField("Column1", _t('Content.COLUMN1','Column 1')));
-		$fields->addFieldToTab('Root.Column1', new UploadField("Column1Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'), Null, Null, Null, 'Uploads/columnimages'));
+		$fields->addFieldToTab('Root.Main', $UploadField2);
 		$fields->addFieldToTab('Root.Column1', new TreeDropdownField('Link1LocID', 'Link 1 Location', 'SiteTree')); 
+
 		$fields->addFieldToTab('Root.Column2', new TextField("Column2Title", _t('Content.COLUMNTITLE','Column title')));	
 		$fields->addFieldToTab('Root.Column2', new HtmlEditorField("Column2", _t('Content.COLUMN2','Column 2')));
-		$fields->addFieldToTab('Root.Column2', new UploadField("Column2Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'), Null, Null, Null, 'Uploads/columnimages'));
+		$fields->addFieldToTab('Root.Main', $UploadField3);
 		$fields->addFieldToTab('Root.Column2', new TreeDropdownField('Link2LocID', 'Link 2 Location', 'SiteTree'));
+
 		$fields->addFieldToTab('Root.Column3', new TextField("Column3Title", _t('Content.COLUMNTITLE','Column title')));
 		$fields->addFieldToTab('Root.Column3', new HtmlEditorField("Column3", _t('Content.COLUMN3','Column 3')));
-		$fields->addFieldToTab('Root.Column3', new UploadField("Column3Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'), Null, Null, Null, 'Uploads/columnimages'));
+		$fields->addFieldToTab('Root.Main', $UploadField4);
 		$fields->addFieldToTab('Root.Column3', new TreeDropdownField('Link3LocID', 'Link 3 Location', 'SiteTree')); 
+
 		$fields->addFieldToTab('Root.Column4', new TextField("Column4Title", _t('Content.COLUMNTITLE','Column title')));	
 		$fields->addFieldToTab('Root.Column4', new HtmlEditorField("Column4", _t('Content.COLUMN4','Column 4')));	
-		$fields->addFieldToTab('Root.Column4', new UploadField("Column4Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'), Null, Null, Null, 'Uploads/columnimages'));
+		$fields->addFieldToTab('Root.Main', $UploadField5);
 		$fields->addFieldToTab('Root.Column4', new TreeDropdownField('Link4LocID', 'Link 4 Location', 'SiteTree')); 
 
 	return $fields;

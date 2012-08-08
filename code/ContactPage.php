@@ -15,7 +15,7 @@ class ContactPage extends Page {
 		"SuccessMsg" => "HTMLText"
 	); 
 	
-	   static $has_many = array(
+	   static $has_one = array(
         'MainImage' => 'BetterImage'
     );
 	

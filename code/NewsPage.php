@@ -15,10 +15,18 @@
 		);
 		
 		function getCMSFields() {
+
+			// Settings for UploadFields : Main Image
+	
+			$UploadField = new UploadField("Image", _t('Content.MAINIMAGE','Main Image'));
+			$UploadField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
+			$UploadField->setFolderName('Uploads/NewsImages');
+	
+			// Create Tabs
 			
 			$fields = parent::getCMSFields();
 			$fields->addFieldToTab('Root.Main', new TextField("Subtitle", _t('Content.SUBTITLE','Subtitle under the title')));					
-			$fields->addFieldToTab("Root.Main", new UploadField("Image", _t('Content.MAINIMAGE','Main Image')));
+			$fields->addFieldToTab('Root.Main', $UploadField);
 			$fields->addFieldToTab('Root.Main', new TextField("Author", _t('Content.AUTHOR','Author')));
 			$fields->addFieldToTab('Root.Main', $dateField = new DateField("Date", _t('Content.DATE','Date')));
 			$dateField->setConfig('showcalendar', true);
