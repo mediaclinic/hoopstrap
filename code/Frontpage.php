@@ -95,25 +95,25 @@ class Frontpage extends Page {
 		$fields->addFieldToTab('Root.Featured1', new HtmlEditorField("Featured1", _t('Content.FEATURED','Featured')));
 		$fields->addFieldToTab('Root.Featured1', $UploadField2);
 		$fields->addFieldToTab('Root.Featured1', new TreeDropdownField('Link1LocID', 'Link 1 Location', 'SiteTree')); 
-		$fields->addFieldToTab('Root.Featured1', new TextField("Featured1Info", _t('Content.FEATUREDINFO','Additional info (price, new, hot, special offer, etc.)')));
+		$fields->addFieldToTab('Root.Featured1', new TextField("Featured1Info", _t('Content.FEATUREDINFO','Additional info (price, new, hot, special offer, etc. or read more)')));
 
 		$fields->addFieldToTab('Root.Featured2', new TextField("Featured2Title", _t('Content.FEATUREDTITLE','Featured title')));	
 		$fields->addFieldToTab('Root.Featured2', new HtmlEditorField("Featured2", _t('Content.FEATURED','Featured')));
 		$fields->addFieldToTab('Root.Featured2', $UploadField3);
 		$fields->addFieldToTab('Root.Featured2', new TreeDropdownField('Link2LocID', 'Link 2 Location', 'SiteTree'));
-		$fields->addFieldToTab('Root.Featured2', new TextField("Featured2Info", _t('Content.FEATUREDINFO','Additional info (price, new, hot, special offer, etc.)')));
+		$fields->addFieldToTab('Root.Featured2', new TextField("Featured2Info", _t('Content.FEATUREDINFO','Additional info (price, new, hot, special offer, etc. or read more)')));
 
 		$fields->addFieldToTab('Root.Featured3', new TextField("Featured3Title", _t('Content.FEATUREDTITLE','Featured title')));
 		$fields->addFieldToTab('Root.Featured3', new HtmlEditorField("Featured3", _t('Content.FEATURED','Featured')));
 		$fields->addFieldToTab('Root.Featured2', $UploadField4);
 		$fields->addFieldToTab('Root.Featured3', new TreeDropdownField('Link3LocID', 'Link 3 Location', 'SiteTree'));
-		$fields->addFieldToTab('Root.Featured3', new TextField("Featured3Info", _t('Content.FEATUREDINFO','Additional info (price, new, hot, special offer, etc.)')));
+		$fields->addFieldToTab('Root.Featured3', new TextField("Featured3Info", _t('Content.FEATUREDINFO','Additional info (price, new, hot, special offer, etc. or read more)')));
 
 		$fields->addFieldToTab('Root.Featured4', new TextField("Featured4Title", _t('Content.FEATUREDTITLE','Featured title')));	
 		$fields->addFieldToTab('Root.Featured4', new HtmlEditorField("Featured4", _t('Content.FEATURED','Featured')));	
 		$fields->addFieldToTab('Root.Featured2', $UploadField5);
 		$fields->addFieldToTab('Root.Featured4', new TreeDropdownField('Link4LocID', 'Link 4 Location', 'SiteTree'));
-		$fields->addFieldToTab('Root.Featured4', new TextField("Featured4Info", _t('Content.FEATUREDINFO','Additional info (price, new, hot, special offer, etc.)')));	
+		$fields->addFieldToTab('Root.Featured4', new TextField("Featured4Info", _t('Content.FEATUREDINFO','Additional info (price, new, hot, special offer, etc. or read more)')));	
 
 		$fields->addFieldToTab('Root.SocialMedia', new TextField("SocialMediaInfo", _t('Content.SOCIALMEDIAINFO','What would you say to your visitors to get likes?')));	
 
