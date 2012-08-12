@@ -2,6 +2,11 @@
 
  
 class Frontpage extends Page {
+
+    static $singular_name = 'Frontpage';
+    static $plural_name = 'Frontpages';
+    static $description = 'Frontpage with big Hero element and Featured boxes.';
+
 	static $db = array(	
 		"HeroTitle" => "Text",
 		"Subtitle" => "Text",

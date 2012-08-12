@@ -1,6 +1,11 @@
 <?php
  
 	class Logo extends Page {
+
+		static $singular_name = 'Logo';
+		static $plural_name = 'Logos';
+		static $description = 'A pagetype to include your logo.';
+
 		static $db = array(	
 		); 
 		

@@ -1,7 +1,7 @@
 <?php
 
  
-class FrontpageSlideshowSlide extends DataObject {
+class SlideshowSlide extends DataObject {
 
 	static $db = array(	
 		"Heading" => "Text",
@@ -23,7 +23,8 @@ class FrontpageSlideshowSlide extends DataObject {
 	public static $summary_fields = array(
 		'SlideImage.CMSThumbnail' => 'Image',
 		'Heading' => 'Heading',
-		'SlideContent' => 'SlideContent'
+		'SlideContent' => 'SlideContent',
+		'Published' => 'Published'
 	);
 
 	// to change the default sorting to the new SortID 
@@ -35,11 +36,16 @@ class FrontpageSlideshowSlide extends DataObject {
 		return $this->SortID = $this->getNextSortID(); 
 		} 
 	}
+	public function getNextSortID() {
+		$getDataList = $this->Slideshow()->SlideshowSlides;
+		if (!$getDataList) {
 
-	public function getNextSortID() { 
-		return $this->Slideshow()->SlideshowSlides()->Last()->SortID + 1; 
+		return '1';
+		} else {
+
+		return $getDataList->Last()->SortID + 1;
+		}
 	}
-
 	
 	function getCMSFields() {
 
@@ -51,8 +57,6 @@ class FrontpageSlideshowSlide extends DataObject {
 			$image_field->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
 			$image_field->setFolderName('Uploads/SliderImages');
 
-			$treedropdownfield = new TreeDropdownField('ButtonLinkLocID', 'Button link location', 'SiteTree');
-
 		// Create Tabs
 	
 		$t = new TabSet(
@@ -63,8 +67,8 @@ class FrontpageSlideshowSlide extends DataObject {
 				new TextField("Subtitle", _t('Content.SUBTITLE','Subtitle of Slide')),
 				new HTMLEditorField("SlideContent", _t('Content.CONTENT','HTML-content to slide')),
 				new TextField("ButtonText", _t('Content.BUTTONTEXT','Button text')),
-				$treedropdownfield,
-				new DropdownField('SlideTxtDisplay', _t('Content.SLIDETXTDISPLAY','Enable Texts over slide'),singleton('FrontpageSlideshowSlide')->dbObject('SlideTxtDisplay')->enumValues()),
+				new TreeDropdownField('ButtonLinkLocID', 'Button link location', 'SiteTree'),
+				new DropdownField('SlideTxtDisplay', _t('Content.SLIDETXTDISPLAY','Enable Texts over slide'),singleton('SlideshowSlide')->dbObject('SlideTxtDisplay')->enumValues()),
 				new CheckboxField('Published', _t('Content.PUBLISHED','Is item published?'))
 			),
 			new Tab(
@@ -73,7 +77,7 @@ class FrontpageSlideshowSlide extends DataObject {
 			),
 			new Tab(
 				'FX',
-				new DropdownField('SlideEffect', _t('Content.SLIDEEFFECT','SlideEffect'),singleton('FrontpageSlideshowSlide')->dbObject('SlideEffect')->enumValues())
+				new DropdownField('SlideEffect', _t('Content.SLIDEEFFECT','SlideEffect'),singleton('SlideshowSlide')->dbObject('SlideEffect')->enumValues())
 			)
 			
 		);

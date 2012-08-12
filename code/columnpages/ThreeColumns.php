@@ -1,7 +1,11 @@
 <?php
 
- 
 class ThreeColumns extends Page {
+
+    static $singular_name = 'Three Columns';
+    static $plural_name = 'Three Columns';
+    static $description = 'A page with three columns under Mainimage.';
+
 	static $db = array(	
 		"Subtitle" => "Text",
 		"IntroTxtBefore" => "Text",

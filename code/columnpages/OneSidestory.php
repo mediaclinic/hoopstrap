@@ -1,21 +1,27 @@
 <?php
-
  
-class LeftCenterRight extends Page {
+class OneSidestory extends Page {
+
+    static $singular_name = 'One Sidestory';
+    static $plural_name = 'One Sidestories';
+    static $description = 'Pagetype with wide column and sidestory bar.';
+
 	static $db = array(	
+		"Subtitle" => "Text",
 		"IntroTxtBefore" => "Text",
 		"IntroTxtAfter" => "Text",		
         'Date' => 'Date',
         'Author' => 'Text',
-		"LeftColumn" => "HTMLText",
 		"WideColumn" => "HTMLText",
-		"RightColumn" => "HTMLText"
+		"Sidestory" => "HTMLText"
 	); 
 	
 	public static $has_one = array(
 		'MainImage' => 'BetterImage'
 	);
-		
+	
+
+	
 	function getCMSFields() {
 
 		// Settings for UploadFields : Main Image
@@ -27,7 +33,7 @@ class LeftCenterRight extends Page {
 		// Create Tabs
 
     	$fields = parent::getCMSFields();
-	
+		$fields->addFieldToTab('Root.Main', new TextField("Subtitle", _t('Content.SUBTITLE','Subtitle under the title')));
 		$fields->addFieldToTab('Root.Main', new TextField("IntroTxtBefore", _t('Content.INTROTXTBEFORE','Introduction text before main image')));
 		$fields->addFieldToTab('Root.Main', $UploadField);	
 		$fields->addFieldToTab('Root.Main', new TextField("IntroTxtAfter", _t('Content.INTROTXTAFTER','Introduction text after main image')));	
@@ -37,11 +43,9 @@ class LeftCenterRight extends Page {
     	$dateField->setConfig('dateformat', 'dd.MM.YYYY');
 		$fields->removeFieldFromTab('Root.Main', 'Content');
 
-		$fields->addFieldToTab('Root.LeftColumn', new HtmlEditorField("LeftColumn", _t('Content.WIDECOLUMN','Left Column')));
+		$fields->addFieldToTab('Root.WideColumn', new HtmlEditorField("WideColumn", _t('Content.WIDECOLUMN','Wide Column')));
 
-		$fields->addFieldToTab('Root.WideColumn', new HtmlEditorField("WideColumn", _t('Content.COLUMN2','Wide Column')));
-	
-		$fields->addFieldToTab('Root.RightColumn', new HtmlEditorField("RightColumn", _t('Content.COLUMN3','Right Column')));	
+		$fields->addFieldToTab('Root.Sidestory', new HtmlEditorField("Sidestory", _t('Content.SIDESTORY','Sidestory Column')));
 
 	return $fields;
    }
@@ -56,10 +60,10 @@ class LeftCenterRight extends Page {
   
 }
  
-class LeftCenterRight_Controller extends Page_Controller {
+class OneSidestory_Controller extends Page_Controller {
 	
 // For LayoutHolder	
-	public static $LayoutTemplate = 'LeftCenterRight';
+	public static $LayoutTemplate = 'OneSidestory';
 	function renderForHolderPage() {
 	   $template = $this->stat('LayoutTemplate');
 	   if ($template) return $this->renderWith(array($template));

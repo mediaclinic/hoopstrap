@@ -51,25 +51,25 @@ class FrontpageSlideshow extends Page {
 
 		$UploadField2 = new UploadField("Featured1Image", _t('Content.FEATUREDHEROIMAGE','Featured Image'));
 		$UploadField2->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField2->setFolderName('Uploads');
+		$UploadField2->setFolderName('Uploads/Frontpage');
 
 		// Settings for UploadFields : #2 Featured Image
 
 		$UploadField3 = new UploadField("Featured2Image", _t('Content.FEATUREDHEROIMAGE','Featured Image'));
 		$UploadField3->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField3->setFolderName('Uploads');
+		$UploadField3->setFolderName('Uploads/Frontpage');
 
 		// Settings for UploadFields : #3 Featured Image
 
 		$UploadField4 = new UploadField("Featured3Image", _t('Content.FEATUREDHEROIMAGE','Featured Image'));
 		$UploadField4->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField4->setFolderName('Uploads');
+		$UploadField4->setFolderName('Uploads/Frontpage');
 
 		// Settings for UploadFields : #4 Featured Image
 
 		$UploadField5 = new UploadField("Featured4Image", _t('Content.FEATUREDHEROIMAGE','Featured Image'));
 		$UploadField5->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField5->setFolderName('Uploads');
+		$UploadField5->setFolderName('Uploads/Frontpage');
 
 		// Create Tabs
 
@@ -126,14 +126,6 @@ class FrontpageSlideshow extends Page {
 
 	return $fields;
    }
-
-// For LayoutHolder
-	function RenderAsChild() {
-	   $class = $this->ClassName . "_Controller";
-	   $controller = new $class($this);
-	   return $controller->renderForHolderPage();
-	}
-// holder
   
 }
  
@@ -145,15 +137,6 @@ class FrontpageSlideshow_Controller extends Page_Controller {
 	public function init() {
 	  parent::init();
 	}
-
-// For LayoutHolder	
-	public static $LayoutTemplate = 'FrontpageSlideshow';
-	function renderForHolderPage() {
-	   $template = $this->stat('LayoutTemplate');
-	   if ($template) return $this->renderWith(array($template));
-	   else return '';
-	}
-// holder
 	
 }
 ?>

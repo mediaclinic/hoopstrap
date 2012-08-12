@@ -1,7 +1,12 @@
 <?php
 
- 
 class ContactPage extends Page {
+
+    static $singular_name = 'Contact Page';
+    static $plural_name = 'Contacts Pages';
+    static $description = 'Contact Page is used for simple content, form and Google Maps integration.';
+    static $icon = '';
+
 	static $db = array(	
 		"Subtitle" => "Text",
 		"IntroTxtBefore" => "Text",

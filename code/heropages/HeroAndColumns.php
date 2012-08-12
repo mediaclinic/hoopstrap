@@ -1,7 +1,11 @@
 <?php
 
- 
 class HeroAndColumns extends Page {
+
+    static $singular_name = 'Hero and Columns';
+    static $plural_name = 'Heros and Columns';
+    static $description = 'A page with huge Hero element and columns.';
+
 	static $db = array(	
 		"HeroTitle" => "Text",
 		"Subtitle" => "Text",

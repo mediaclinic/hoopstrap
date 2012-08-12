@@ -1,6 +1,11 @@
 <?php
 
 	class Footer extends Page {
+
+		static $singular_name = 'Footer';
+		static $plural_name = 'Footers';
+		static $description = 'Use as Footer of your site.';
+		static $icon = '';
 		
 		static $db = array(	
 			"Column1" => "HTMLText",
