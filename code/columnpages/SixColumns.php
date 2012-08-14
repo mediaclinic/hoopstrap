@@ -2,6 +2,11 @@
 
  
 	class SixColumns extends Page {
+	
+	static $singular_name = 'SixColumns';
+	static $plural_name = 'SixColumns';
+	static $description = 'Page with six same sized columns.';
+	
 		static $db = array(	
 			"Subtitle" => "Text",
 			"IntroTxtBefore" => "Text",

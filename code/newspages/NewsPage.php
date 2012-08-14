@@ -5,6 +5,11 @@
  */
 
 	class NewsPage extends Page {
+	
+		static $singular_name = 'NewsPage';
+		static $plural_name = 'NewsPages';
+		static $description = 'Page type including one news item.';
+	
 		static $db = array(
 			"Subtitle" => "Text",
 			'Date' => 'Date',

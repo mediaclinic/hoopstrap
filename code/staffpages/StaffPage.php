@@ -2,6 +2,10 @@
  
 class StaffPage extends Page {
 
+	static $singular_name = 'StaffPage';
+	static $plural_name = 'StaffPages';
+	static $description = 'Page type presenting a staff member including for example a picture, title, description etc.';
+
 	 static $db = array(
 				'Firstname' => 'Text',
 				'Lastname' => 'Text',

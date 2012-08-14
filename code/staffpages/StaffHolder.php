@@ -1,6 +1,11 @@
 <?php
  
 class StaffHolder extends Page {
+
+	static $singular_name = 'StaffHolder';
+	static $plural_name = 'StaffHolders';
+	static $description = 'Page type that wraps different staff members together on the same page.';
+
     static $db = array(
 		"Subtitle" => "Text",
 		"IntroTxtBefore" => "Text",

@@ -3,6 +3,11 @@
  * Defines the SliderHolder page type
  */
 class SliderHolder extends Page {
+
+	static $singular_name = 'SliderHolder';
+	static $plural_name = 'SliderHolders';
+	static $description = 'Page type that wraps slides together.';
+
 	static $db = array(
 	);
 	static $has_one = array(

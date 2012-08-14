@@ -3,6 +3,10 @@
  
 class SlideshowSlide extends DataObject {
 
+	static $singular_name = 'SlideshowSlide';
+	static $plural_name = 'SlideshowSlides';
+	static $description = 'Page type that wraps the slides of the slideshow together.';
+
 	static $db = array(	
 		"Heading" => "Text",
 		"Subtitle" => "Text",

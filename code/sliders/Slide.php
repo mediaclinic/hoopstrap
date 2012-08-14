@@ -2,6 +2,11 @@
 
  
 class Slide extends Page {
+
+	static $singular_name = 'Slide';
+	static $plural_name = 'Slides';
+	static $description = 'Page type including a slide presented in the slideshow.';
+
 	static $db = array(	
 		"Subtitle" => "Text",
 		"SlideContent" => "HTMLText",

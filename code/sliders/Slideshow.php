@@ -3,6 +3,10 @@
  
 class Slideshow extends Page {
 
+	static $singular_name = 'Slideshow';
+	static $plural_name = 'Slideshows';
+	static $description = 'Page presenting a slideshow.';
+
 	static $db = array(	
 		'SortOrder' => 'Int'
 	); 

@@ -4,8 +4,12 @@
  * fits the requested dimensions
  * - Original implementation Roman Schmid / SSBits.com
  */
-class BetterImage extends Image
-{   
+class BetterImage extends Image {  
+
+	static $singular_name = 'BetterImage';
+	static $plural_name = 'BetterImages';
+	static $description = 'Prevents creation of resized images if the uploaded file already fits the requested dimensions.';
+ 
     public function setWidth($width) {
         if($width == $this->getWidth()){
             return $this;

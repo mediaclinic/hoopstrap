@@ -2,6 +2,11 @@
 
  
 class OneWideTwoColumns extends Page {
+
+	static $singular_name = 'OneWideTwoColumns';
+	static $plural_name = 'OneWideTwoColumns';
+	static $description = 'Page with one wide column on the left and two narrow columns on the right.';
+
 	static $db = array(	
 		"Subtitle" => "Text",
 		"IntroTxtBefore" => "Text",

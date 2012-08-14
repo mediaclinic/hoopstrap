@@ -3,6 +3,10 @@
  
 class FrontpageSlideshowSlide extends DataObject {
 
+	static $singular_name = 'FrontpageSlideshowSlide';
+	static $plural_name = 'FrontpageSlideshowSlides';
+	static $description = 'Frontpage slideshow for Nivoslider Animation on top.';
+
 	static $db = array(	
 		"Heading" => "Text",
 		"Subtitle" => "Text",

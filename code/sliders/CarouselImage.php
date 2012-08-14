@@ -2,6 +2,11 @@
 
  
 class CarouselImage extends Page {
+
+	static $singular_name = 'CarouselImage';
+	static $plural_name = 'CarouselImages';
+	static $description = 'Page type including an image of the image carousel.';
+
 	static $db = array(	
 		"Caption" => "HTMLText"
 	); 

@@ -3,6 +3,11 @@
  * Defines the CarouselHolder page type
  */
 class CarouselHolder extends Page {
+
+	static $singular_name = 'CarouselHolder';
+	static $plural_name = 'CarouselHolders';
+	static $description = 'Page type that ties images presented in carousel together.';
+
 	static $db = array(
 	);
 	static $has_one = array(
