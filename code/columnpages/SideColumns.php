@@ -2,6 +2,12 @@
 
  
 class Content extends Page {
+
+	static $singular_name = 'SideColumns';
+	static $plural_name = 'SideColumns';
+	static $description = 'Page with two columns.';
+
+
 	static $db = array(	
 		"IntroTxtBefore" => "Text",
 		"IntroTxtAfter" => "Text",		
