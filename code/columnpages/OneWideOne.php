@@ -2,6 +2,11 @@
 
  
 class OneWideOne extends Page {
+
+	static $singular_name = 'OneWideOne';
+	static $plural_name = 'OneWideOnes';
+	static $description = 'Page with one wide column on the left and one narrow on the right.';
+	
 	static $db = array(	
 		"Subtitle" => "Text",
 		"IntroTxtBefore" => "Text",
