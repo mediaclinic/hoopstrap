@@ -64,6 +64,7 @@
 			//Requirements::themedCSS('layout'); 
 			//Requirements::themedCSS('typography'); 
 			//Requirements::themedCSS('form'); 
+			Requirements::themedCSS('editor'); 
 		
 			// HANDLE JAVASCRIPTS		
 			//Requirements::block(THIRDPARTY_DIR . '/prototype/prototype.js');
