@@ -55,13 +55,18 @@ BootstrapForm::set_jquery_included(true);
 Object::add_extension('SiteConfig','CustomSiteConfig');
 
 //Set HTML Editor Config
-HtmlEditorConfig::get('cms')->setOption('convert_fonts_to_spans', false);
-//
+
+HtmlEditorConfig::get('cms')->setOptions(array(
+	'apply_source_formatting'=>'false',
+	'convert_fonts_to_spans', 'false',
+	'content_css' => 'static/css/editor.css',
+	'language' => i18n::get_tinymce_lang(),
+	'document_base_url' => Director::absoluteBaseURL(),
+)); 
+
 HtmlEditorConfig::get('cms')->enablePlugins('searchreplace');
 //
 HtmlEditorConfig::get('cms')->insertButtonsAfter('pasteword', 'replace');
-//
-HtmlEditorConfig::get('cms')->setOptions(array( 'content_css' => 'static/css/editor.css' ));
 //
 HtmlEditorConfig::get('cms')->enablePlugins('safari');
 

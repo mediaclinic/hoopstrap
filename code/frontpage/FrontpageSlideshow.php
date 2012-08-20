@@ -24,7 +24,6 @@ class FrontpageSlideshow extends Page {
 		"Featured2Info" => "Text",
 		"Featured3Info" => "Text",
 		"Featured4Info" => "Text",
-		'SortOrder' => 'Int',
 		"SocialMediaInfo" => "Varchar(100)"
 	); 
 	
@@ -42,7 +41,7 @@ class FrontpageSlideshow extends Page {
 	);
 	
 	public static $has_many = array(
-		"SlideshowSlides" => "FrontpageSlideshowSlide"
+		"FrontpageSlides" => "FrontpageSlideshowSlide"
 	);
 	
 	function getCMSFields() {
@@ -79,12 +78,12 @@ class FrontpageSlideshow extends Page {
 
 			$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 			$gridFieldConfig->addComponents(
-					new GridFieldSortableRows("SortID")
+				new GridFieldSortableRows("SortOrder"),
+				new FrontpageSlideshow_TogglePublish()
 			);
 	
-			$gridField = new GridField("SlideshowSlides", "Slides:", $this->SlideshowSlides(), $gridFieldConfig);
-			$fields->addFieldToTab("Root.SlideshowSlides", $gridField);
-
+			$gridField = new GridField("FrontpageSlides", "Slides:", $this->FrontpageSlides(), $gridFieldConfig);
+			$fields->addFieldToTab("Root.FrontpageSlides", $gridField);
 	
 			$fields->removeFieldFromTab('Root.Main', 'Content');
 	
