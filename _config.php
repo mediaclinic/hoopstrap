@@ -9,8 +9,8 @@ global $databaseConfig;
 $databaseConfig = array(
 	"type" => 'MySQLDatabase',
 	"server" => 'localhost',
-	"username" => 'root',
-	"password" => 'root',
+	"username" => 'silverstripe',
+	"password" => 'silverstripe',
 	"database" => 'silverstripe3_github',
 	"path" => '',
 );
