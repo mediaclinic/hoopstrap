@@ -23,6 +23,7 @@ class HeroAndColumns extends Page {
 	
 	public static $has_one = array(
 		'HeroBackgroundImage' => 'BetterImage',
+		'JumbotronBackground' => 'BetterImage',
 		'HeroLinkLoc' => 'SiteTree',
 		'Link1Loc' => 'SiteTree',
 		'Link2Loc' => 'SiteTree',
@@ -43,7 +44,7 @@ class HeroAndColumns extends Page {
 		$UploadField = new UploadField("HeroBackgroundImage", _t('Content.HEROBACKGROUNDIMAGE','Hero element background image'));
 		$UploadField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
 		$UploadField->setFolderName('Uploads');
-
+		
 		// Settings for UploadFields : #1 Column Hero Image
 
 		$UploadField2 = new UploadField("Column1Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'));
@@ -67,6 +68,12 @@ class HeroAndColumns extends Page {
 		$UploadField5 = new UploadField("Column4Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'));
 		$UploadField5->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
 		$UploadField5->setFolderName('Uploads');
+		
+		// Settings for jumbotron background
+		
+		$UploadField6 = new UploadField("JumbotronBackgroundImage", _t('Content.JUMBOTRONBACKGROUNDIMAGE','Jumbotron element background image'));
+		$UploadField6->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
+		$UploadField6->setFolderName('Uploads/jumbotron');
 
 		// Create Tabs
 
@@ -98,7 +105,9 @@ class HeroAndColumns extends Page {
 		$fields->addFieldToTab('Root.Column4', new TextField("Column4Title", _t('Content.COLUMNTITLE','Column title')));	
 		$fields->addFieldToTab('Root.Column4', new HtmlEditorField("Column4", _t('Content.COLUMN4','Column 4')));	
 		$fields->addFieldToTab('Root.Main', $UploadField5);
-		$fields->addFieldToTab('Root.Column4', new TreeDropdownField('Link4LocID', 'Link 4 Location', 'SiteTree')); 
+		$fields->addFieldToTab('Root.Column4', new TreeDropdownField('Link4LocID', 'Link 4 Location', 'SiteTree'));
+		
+		$fields->addFieldToTab('Root.Jumbotron', $UploadField6); 
 
 	return $fields;
    }
