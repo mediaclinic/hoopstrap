@@ -13,7 +13,7 @@ class LayoutHolder extends Page {
     static $has_one = array(
     );
     
-   static $allowed_children = array('HeroAndColumns','FullPage','TwoColumns','ThreeColumns','FourColumns','SixColumns','OneWideTwoColumns','OneSidestory','LeftCenterRight','StaffHolder','SliderHolder','CarouselHolder');
+   static $allowed_children = array('HeroAndColumns','FullPage','TwoColumns','ThreeColumns','FourColumns','SixColumns','OneWideTwoColumns','OneSidestory','LeftCenterRight','StaffHolder','SliderHolder','CarouselHolder','Jumbotron');
 	
 
 }
