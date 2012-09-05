@@ -89,22 +89,22 @@ class HeroAndColumns extends Page {
 
 		$fields->addFieldToTab('Root.Column1', new TextField("Column1Title", _t('Content.COLUMNTITLE','Column title')));	
 		$fields->addFieldToTab('Root.Column1', new HtmlEditorField("Column1", _t('Content.COLUMN1','Column 1')));
-		$fields->addFieldToTab('Root.Main', $UploadField2);
+		$fields->addFieldToTab('Root.Column1', $UploadField2);
 		$fields->addFieldToTab('Root.Column1', new TreeDropdownField('Link1LocID', 'Link 1 Location', 'SiteTree')); 
 
 		$fields->addFieldToTab('Root.Column2', new TextField("Column2Title", _t('Content.COLUMNTITLE','Column title')));	
 		$fields->addFieldToTab('Root.Column2', new HtmlEditorField("Column2", _t('Content.COLUMN2','Column 2')));
-		$fields->addFieldToTab('Root.Main', $UploadField3);
+		$fields->addFieldToTab('Root.Column2', $UploadField3);
 		$fields->addFieldToTab('Root.Column2', new TreeDropdownField('Link2LocID', 'Link 2 Location', 'SiteTree'));
 
 		$fields->addFieldToTab('Root.Column3', new TextField("Column3Title", _t('Content.COLUMNTITLE','Column title')));
 		$fields->addFieldToTab('Root.Column3', new HtmlEditorField("Column3", _t('Content.COLUMN3','Column 3')));
-		$fields->addFieldToTab('Root.Main', $UploadField4);
+		$fields->addFieldToTab('Root.Column3', $UploadField4);
 		$fields->addFieldToTab('Root.Column3', new TreeDropdownField('Link3LocID', 'Link 3 Location', 'SiteTree')); 
 
 		$fields->addFieldToTab('Root.Column4', new TextField("Column4Title", _t('Content.COLUMNTITLE','Column title')));	
 		$fields->addFieldToTab('Root.Column4', new HtmlEditorField("Column4", _t('Content.COLUMN4','Column 4')));	
-		$fields->addFieldToTab('Root.Main', $UploadField5);
+		$fields->addFieldToTab('Root.Column4', $UploadField5);
 		$fields->addFieldToTab('Root.Column4', new TreeDropdownField('Link4LocID', 'Link 4 Location', 'SiteTree'));
 		
 		$fields->addFieldToTab('Root.Jumbotron', $UploadField6); 
