@@ -43,31 +43,31 @@ class HeroAndColumns extends Page {
 
 		$UploadField = new UploadField("HeroBackgroundImage", _t('Content.HEROBACKGROUNDIMAGE','Hero element background image'));
 		$UploadField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField->setFolderName('Uploads');
+		$UploadField->setFolderName('Uploads/heroimages');
 		
 		// Settings for UploadFields : #1 Column Hero Image
 
 		$UploadField2 = new UploadField("Column1Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'));
 		$UploadField2->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField2->setFolderName('Uploads');
+		$UploadField2->setFolderName('Uploads/featuredimages');
 
 		// Settings for UploadFields : #2 Column Hero Image
 
 		$UploadField3 = new UploadField("Column2Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'));
 		$UploadField3->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField3->setFolderName('Uploads');
+		$UploadField3->setFolderName('Uploads/featuredimages');
 
 		// Settings for UploadFields : #3 Column Hero Image
 
 		$UploadField4 = new UploadField("Column3Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'));
 		$UploadField4->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField4->setFolderName('Uploads');
+		$UploadField4->setFolderName('Uploads/featuredimages');
 
 		// Settings for UploadFields : #4 Column Hero Image
 
 		$UploadField5 = new UploadField("Column4Image", _t('Content.COLUMNHEROIMAGE','Mainimage for column'));
 		$UploadField5->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField5->setFolderName('Uploads');
+		$UploadField5->setFolderName('Uploads/featuredimages');
 		
 		// Settings for jumbotron background
 		

@@ -1,11 +1,11 @@
 <?php
 
  
-class FrontpageSlideshow extends Page {
+class JumbotronSlideshow extends Page {
 
-    static $singular_name = 'Frontpage Slideshow';
-    static $plural_name = 'Frontpage Slideshows';
-    static $description = 'Frontpage slideshow pagetype for Nivoslider Animation on top.';
+    static $singular_name = 'Jumbotron Slideshow';
+    static $plural_name = 'Jumbotron Slideshows';
+    static $description = 'Jumbotron slideshow pagetype for Nivoslider Animation on top.';
     static $icon = '';
 
 	static $db = array(	
@@ -36,12 +36,11 @@ class FrontpageSlideshow extends Page {
 		'Featured1Image' => 'BetterImage',
 		'Featured2Image' => 'BetterImage',
 		'Featured3Image' => 'BetterImage',
-		'Featured4Image' => 'BetterImage',
-		'Widgets' => 'WidgetArea'
+		'Featured4Image' => 'BetterImage'
 	);
 	
 	public static $has_many = array(
-		"FrontpageSlides" => "FrontpageSlideshowSlide"
+		"JumbotronSlides" => "JumbotronSlideshowSlide"
 	);
 	
 	function getCMSFields() {
@@ -79,15 +78,15 @@ class FrontpageSlideshow extends Page {
 			$gridFieldConfig = GridFieldConfig_RelationEditor::create();
 			$gridFieldConfig->addComponents(
 				new GridFieldSortableRows("SortOrder"),
-				new FrontpageSlideshow_TogglePublish()
+				new JumbotronSlideshow_TogglePublish()
 			);
 	
-			$gridField = new GridField("FrontpageSlides", "Slides:", $this->FrontpageSlides(), $gridFieldConfig);
-			$fields->addFieldToTab("Root.FrontpageSlides", $gridField);
+			$gridField = new GridField("JumbotronSlides", "Slides:", $this->JumbotronSlides(), $gridFieldConfig);
+			$fields->addFieldToTab("Root.JumbotronSlides", $gridField);
 	
 			$fields->removeFieldFromTab('Root.Main', 'Content');
 	
-			// Additional text for Frontpage
+			// Additional text for Content
 	
 			$fields->addFieldToTab('Root.Introduction', new TextField("IntroductionTitle", _t('Content.INTRODUCTIONTITLE','Heading for introduction')));	
 			$fields->addFieldToTab('Root.Introduction', new HtmlEditorField("IntroductionCol1", _t('Content.INTRODUCTIONCOLUMN1','Introduction text column 1')));
@@ -128,7 +127,7 @@ class FrontpageSlideshow extends Page {
   
 }
  
-class FrontpageSlideshow_Controller extends Page_Controller {
+class JumbotronSlideshow_Controller extends Page_Controller {
 
 	public static $allowed_actions = array (
 	);

@@ -1,13 +1,13 @@
 <?php
 
  
-class SlideshowSlide extends DataObject {
+class JumbotronSlideshowSlide extends DataObject {
 
-	static $singular_name = 'SlideshowSlide';
-	static $plural_name = 'SlideshowSlides';
-	static $description = 'Page type that wraps the slides of the slideshow together.';
+	static $singular_name = 'Jumbotron Slideshow Slide';
+	static $plural_name = 'Jumbotron Slideshow Slides';
+	static $description = 'Jumbotron slideshow for Nivoslider Animation on top.';
 
-	static $db = array(	
+	static $db = array(
 		"Heading" => "Text",
 		"Subtitle" => "Text",
 		"SlideContent" => "HTMLText",
@@ -20,23 +20,28 @@ class SlideshowSlide extends DataObject {
 	
 	public static $has_one = array(
 		"SlideImage" => "Image",
-		"Slideshow" => "Slideshow",
+		"JumbotronSlideshow" => "JumbotronSlideshow",
 		"ButtonLinkLoc" => "SiteTree"
 	);
-		
+
+	// Fields to be displayed in GridField
 	public static $summary_fields = array(
 		'SlideImage.CMSThumbnail' => 'Image',
 		'Heading' => 'Heading',
 		'SlideContent' => 'SlideContent'
 	);
-
-	// to change the default sorting to the new SortOrder 
-	public static $default_sort = 'SortOrder Asc'; 
-
+	
 	// Set default values
 	public static $defaults = array(
-		'Published' => 1
+		'Published' => '1'
 	);
+
+	// to change the default sorting to the new SortID 
+	public static $default_sort = 'SortOrder Asc';
+
+	// SiteTree behaviour
+	static $can_be_root = false;
+	static $default_parent = "JumbotronSlideshow";
 	
 	function getCMSFields() {
 
@@ -48,6 +53,10 @@ class SlideshowSlide extends DataObject {
 			$image_field->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
 			$image_field->setFolderName('Uploads/sliderimages');
 
+		// DropDown to select link from SiteTree
+
+			$treedropdownfield = new TreeDropdownField('ButtonLinkLocID', 'Button link location', 'SiteTree');
+
 		// Create Tabs
 	
 		$t = new TabSet(
@@ -58,8 +67,8 @@ class SlideshowSlide extends DataObject {
 				new TextField("Subtitle", _t('Content.SUBTITLE','Subtitle of Slide')),
 				new HTMLEditorField("SlideContent", _t('Content.CONTENT','HTML-content to slide')),
 				new TextField("ButtonText", _t('Content.BUTTONTEXT','Button text')),
-				new TreeDropdownField('ButtonLinkLocID', 'Button link location', 'SiteTree'),
-				new DropdownField('SlideTxtDisplay', _t('Content.SLIDETXTDISPLAY','Enable Texts over slide'),singleton('SlideshowSlide')->dbObject('SlideTxtDisplay')->enumValues()),
+				$treedropdownfield,
+				new DropdownField('SlideTxtDisplay', _t('Content.SLIDETXTDISPLAY','Enable Texts over slide'),singleton('JumbotronSlideshowSlide')->dbObject('SlideTxtDisplay')->enumValues()),
 				new CheckboxField('Published', _t('Content.PUBLISHED','Is item published?'))
 			),
 			new Tab(
@@ -68,7 +77,7 @@ class SlideshowSlide extends DataObject {
 			),
 			new Tab(
 				'FX',
-				new DropdownField('SlideEffect', _t('Content.SLIDEEFFECT','SlideEffect'),singleton('SlideshowSlide')->dbObject('SlideEffect')->enumValues())
+				new DropdownField('SlideEffect', _t('Content.SLIDEEFFECT','SlideEffect'),singleton('JumbotronSlideshowSlide')->dbObject('SlideEffect')->enumValues())
 			)
 			
 		);

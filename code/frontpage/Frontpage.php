@@ -52,31 +52,31 @@ class Frontpage extends Page {
 
 		$UploadField = new UploadField("HeroBackgroundImage", _t('Content.HEROBACKGROUNDIMAGE','Hero element background image'));
 		$UploadField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField->setFolderName('Uploads');
+		$UploadField->setFolderName('Uploads/heroimages');
 
 		// Settings for UploadFields : #1 Featured Image
 
 		$UploadField2 = new UploadField("Featured1Image", _t('Content.FEATUREDHEROIMAGE','Featured Image'));
 		$UploadField2->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField2->setFolderName('Uploads');
+		$UploadField2->setFolderName('Uploads/featuredimages');
 
 		// Settings for UploadFields : #2 Featured Image
 
 		$UploadField3 = new UploadField("Featured2Image", _t('Content.FEATUREDHEROIMAGE','Featured Image'));
 		$UploadField3->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField3->setFolderName('Uploads');
+		$UploadField3->setFolderName('Uploads/featuredimages');
 
 		// Settings for UploadFields : #3 Featured Image
 
 		$UploadField4 = new UploadField("Featured3Image", _t('Content.FEATUREDHEROIMAGE','Featured Image'));
 		$UploadField4->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField4->setFolderName('Uploads');
+		$UploadField4->setFolderName('Uploads/featuredimages');
 
 		// Settings for UploadFields : #4 Featured Image
 
 		$UploadField5 = new UploadField("Featured4Image", _t('Content.FEATUREDHEROIMAGE','Featured Image'));
 		$UploadField5->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField5->setFolderName('Uploads');
+		$UploadField5->setFolderName('Uploads/featuredimages');
 
 		// Create Tabs
 

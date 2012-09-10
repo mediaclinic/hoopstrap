@@ -33,7 +33,7 @@ class FrontpageSlideshowSlide extends DataObject {
 	
 	// Set default values
 	public static $defaults = array(
-		'Published' => 1
+		'Published' => '1'
 	);
 
 	// to change the default sorting to the new SortID 
@@ -51,7 +51,7 @@ class FrontpageSlideshowSlide extends DataObject {
 			
 			$image_field = new UploadField('SlideImage', _t('Content.SLIDEIMAGE','Slide image'));
 			$image_field->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-			$image_field->setFolderName('Uploads/Frontpage/SliderImages');
+			$image_field->setFolderName('Uploads/sliderimages');
 
 		// DropDown to select link from SiteTree
 

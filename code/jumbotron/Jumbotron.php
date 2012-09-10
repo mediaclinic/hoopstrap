@@ -21,7 +21,7 @@
 	
 		$UploadField = new UploadField("JumbotronBackground", _t('Content.JUMBOTRONBACKGROUND','Jumbotron background image'));
 		$UploadField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$UploadField->setFolderName('Uploads');
+		$UploadField->setFolderName('Uploads/jumbotron');
 	
 		$fields = parent::getCMSFields();
 

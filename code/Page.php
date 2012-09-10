@@ -76,7 +76,7 @@
 			//Requirements::block(THIRDPARTY_DIR . '/jquery/jquery-packed.js');
 			
 			// LATEST JQUERY FROM GOOGLE
-			Requirements::javascript('http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+			Requirements::javascript('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
 	
 			Requirements::javascript(THEMES_DIR . '/' . $theme . '/js/bootstrap-transition.js');
 			Requirements::javascript(THEMES_DIR . '/' . $theme . '/js/bootstrap-alert.js');
@@ -105,19 +105,16 @@
 	
 		// CREATE HOLDER PAGE CHECKER (FOR SUBMENU USE)
 		
-		public function IsInsideHolder() {
+		public function InsideLayoutHolder() {
 	
 				switch($this->ClassName) { 
-				case 'SliderHolder': 
-				case 'LayoutHolder': 
-				case 'StaffHolder': 
-				case 'CarouselHolder':
-				return true; 
+				case 'LayoutHolder':
+				return 'true'; 
 				break;
 				default: 
-				return false; 
+				return 'false'; 
 				}
-		}
+		}		
 	
 		// CREATE SLIDERHOLDER CHECKER
 		
@@ -126,10 +123,26 @@
 				switch($this->ClassName) { 
 				case 'SliderHolder':
 				case 'CarouselHolder':
-				return true; 
+				return 'true'; 
 				break;
 				default: 
-				return false; 
+				return 'false'; 
 				}
 		}
+
+		// CREATE JUMBOTRON CHECKER
+		
+		public function JumbotronActive() {
+	
+				switch($this->ClassName) { 
+				case 'Jumbotron':
+				case 'JumbotronSlideshow':
+				case 'JumbotronSlideshowSlide':
+				return 'true'; 
+				break;
+				default: 
+				return 'false'; 
+				}
+		}
+
 	}
