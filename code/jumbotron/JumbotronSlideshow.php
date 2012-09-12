@@ -9,7 +9,7 @@ class JumbotronSlideshow extends Page {
     static $icon = '';
 
 	static $db = array(	
-		"IntroductionTitle" => "Text",
+		"IntroductionTxt" => "Text",
 		"IntroductionCol1" => "HTMLText",
 		"IntroductionCol2" => "HTMLText",
 		"Featured1Title" => "Text",
@@ -88,7 +88,7 @@ class JumbotronSlideshow extends Page {
 	
 			// Additional text for Content
 	
-			$fields->addFieldToTab('Root.Introduction', new TextField("IntroductionTitle", _t('Content.INTRODUCTIONTITLE','Heading for introduction')));	
+			$fields->addFieldToTab('Root.Introduction', new TextField("IntroductionTxt", _t('Content.INTRODUCTIONTEXT','Introduction text')));	
 			$fields->addFieldToTab('Root.Introduction', new HtmlEditorField("IntroductionCol1", _t('Content.INTRODUCTIONCOLUMN1','Introduction text column 1')));
 			$fields->addFieldToTab('Root.Introduction', new HtmlEditorField("IntroductionCol2", _t('Content.INTRODUCTIONCOLUMN2','Introduction text column 2')));
 	
