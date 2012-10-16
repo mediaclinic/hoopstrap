@@ -109,7 +109,7 @@ class ContactPage_Controller extends Page_Controller {
         //Set data
         $From = $data['Email'];
         $To = $this->Mailto;
-        $Subject = "Website Contact message";     
+        $Subject = "Viesti www-sivuilta";     
         $email = new Email($From, $To, $Subject);
 
         //Set template to be used in email

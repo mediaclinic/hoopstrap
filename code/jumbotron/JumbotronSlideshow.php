@@ -12,6 +12,7 @@ class JumbotronSlideshow extends Page {
 		"IntroductionTxt" => "Text",
 		"IntroductionCol1" => "HTMLText",
 		"IntroductionCol2" => "HTMLText",
+		"IntroductionCol3" => "HTMLText",
 		"Featured1Title" => "Text",
 		"Featured2Title" => "Text",
 		"Featured3Title" => "Text",
@@ -28,6 +29,7 @@ class JumbotronSlideshow extends Page {
 	); 
 	
 	public static $has_one = array(
+		'JumbotronBackground' => 'BetterImage',
 		"SlideImage" => "Image",
 		'Link1Loc' => 'SiteTree',
 		'Link2Loc' => 'SiteTree',
@@ -44,6 +46,12 @@ class JumbotronSlideshow extends Page {
 	);
 	
 	function getCMSFields() {
+
+		// Settings for UploadFields : Jumbotron Background
+
+		$UploadField = new UploadField("JumbotronBackground", _t('Content.JUMBOTRONBACKGROUND','Jumbotron background image'));
+		$UploadField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
+		$UploadField->setFolderName('Uploads/jumbotron');
 
 		// Settings for UploadFields : #1 Featured Image
 
@@ -91,6 +99,9 @@ class JumbotronSlideshow extends Page {
 			$fields->addFieldToTab('Root.Introduction', new TextField("IntroductionTxt", _t('Content.INTRODUCTIONTEXT','Introduction text')));	
 			$fields->addFieldToTab('Root.Introduction', new HtmlEditorField("IntroductionCol1", _t('Content.INTRODUCTIONCOLUMN1','Introduction text column 1')));
 			$fields->addFieldToTab('Root.Introduction', new HtmlEditorField("IntroductionCol2", _t('Content.INTRODUCTIONCOLUMN2','Introduction text column 2')));
+			$fields->addFieldToTab('Root.Introduction', new HtmlEditorField("IntroductionCol3", _t('Content.INTRODUCTIONCOLUMN3','Introduction text column 3')));
+
+			$fields->addFieldToTab('Root.Jumbotron', $UploadField);
 	
 			// Featured Boxes under Slideshow
 	
