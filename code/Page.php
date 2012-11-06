@@ -47,6 +47,15 @@
 	
 		public function init() {
 			parent::init();
+
+
+			// Enable, if you are going to use TRANSLATABLE. This will enable _t-function
+
+			//if($this->dataRecord->hasExtension('Translatable')) {
+			//	i18n::set_locale($this->dataRecord->Locale);
+			//}
+
+
 	
 			// Note: you should use SS template require tags inside your templates 
 			// instead of putting Requirements calls here.  However these are 
@@ -55,7 +64,7 @@
 			$theme = SSViewer::current_theme();
 	
 	
-			// COMPILED LESS TO CSS LOADED IN HERE
+			// COMPILED LESS TO CSS LOADED IN HERE. Enable after you have done your development.
 			// Requirements::themedCSS('bootstrap', 'screen');
 	
 			// SPECIAL STYLING FOR PRINT

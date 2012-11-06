@@ -27,7 +27,13 @@ SSViewer::set_theme('hoopstraptheme');
 GD::set_default_quality(85);
 
 // Set the site locale
-i18n::set_locale('en_US');
+i18n::set_locale('fi_FI');
+
+// Enable, if you are going to use TRANSLATABLE
+// Translatable::set_default_locale("fi_FI");
+// Translatable::set_allowed_locales(array( 'fi_FI','en_US', 'ru_RU' ));
+// Object::add_extension('SiteTree', 'Translatable');
+// Object::add_extension('SiteConfig', 'Translatable'); // 2.4 or newer only
 
 //Enable Search Form
 FulltextSearchable::enable();
@@ -58,7 +64,6 @@ BootstrapForm::set_jquery_included(true);
 Object::add_extension('SiteConfig','CustomSiteConfig');
 
 //Set HTML Editor Config
-
 HtmlEditorConfig::get('cms')->setOptions(array(
 	'apply_source_formatting'=>'false',
 	'convert_fonts_to_spans', 'false',

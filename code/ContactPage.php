@@ -79,8 +79,10 @@ class ContactPage_Controller extends Page_Controller {
  	public function ContactForm() {
 
 		return BootstrapForm::create(
+
 			$this,
 			"ContactForm",
+
 			FieldList::create(
 				TextField::create('Name', _t('Content.NAME','Name')),
 				EmailField::create('Email',_t('Content.EMAIL', 'Email address'))
@@ -109,8 +111,11 @@ class ContactPage_Controller extends Page_Controller {
         //Set data
         $From = $data['Email'];
         $To = $this->Mailto;
-        $Subject = "Viesti www-sivuilta";     
-        $email = new Email($From, $To, $Subject);
+        $Subject = "Viesti www-sivuilta";
+		$Header .= "Content-type: text/html; charset=utf-8r\n";
+		$Header .= "Content-Transfer-Encodin: 8bitr\n";
+ 
+        $email = new Email($From, $To, $Subject, $Header);
 
         //Set template to be used in email
         $email->setTemplate('ContactEmail');
