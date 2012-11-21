@@ -76,16 +76,10 @@ class FrontpageSlideshow extends Page {
 
 			// Slideshow Gridfield
 		
-			$gridFieldConfig = GridFieldConfig::create()->addComponents(
-				new GridFieldToolbarHeader(),
-				new GridFieldFilterHeader(),
-				new GridFieldSortableHeader(),
-				new GridFieldDataColumns(),
-				new GridFieldEditButton(),
-				new GridFieldDetailForm(),
+			$gridFieldConfig = GridFieldConfig_RelationEditor::create()->addComponents(
 				new FrontpageSlideshow_TogglePublish()
 			);
-			
+		
 			// Check if GridField Paginator module is installed and set it up
 
 			if(class_exists('GridFieldPaginatorWithShowAll')){

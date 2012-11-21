@@ -4,6 +4,7 @@ global $project;
 $project = 'hoopstrap';
 
 define('PROJECT_DIR', $project);
+define('THEME_DIR', 'hoopstrap');
 
 global $databaseConfig;
 $databaseConfig = array(
@@ -49,6 +50,7 @@ if (Director::isDev()) {
 	error_reporting(E_ALL);
 	// SSViewer::set_source_file_comments(true);
 	SSViewer::flush_template_cache();
+	SS_Cache::set_cache_lifetime('any', -1, 100);
 } else {
 	SS_Log::add_writer(new SS_LogFileWriter('../silverstripe.log'), SS_Log::ERR);
 	SS_Log::add_writer(new SS_LogEmailWriter('myEmail@mysite.com'), SS_Log::ERR);
@@ -77,6 +79,10 @@ HtmlEditorConfig::get('cms')->enablePlugins('searchreplace');
 HtmlEditorConfig::get('cms')->insertButtonsAfter('pasteword', 'replace');
 //
 HtmlEditorConfig::get('cms')->enablePlugins('safari');
+
+// Custom editor styles
+$themepath = 'themes/' . SSViewer::current_theme() . '/';
+HtmlEditorConfig::get('cms')->setOptions(array( 'content_css' => '$themepath . /css/editor.css' ));
 
 //Set the admin email address
 Email::setAdminEmail('admin@domain.com');

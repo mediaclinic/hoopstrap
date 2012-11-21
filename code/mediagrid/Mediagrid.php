@@ -1,16 +1,17 @@
 <?php
 
-class Slideshow extends Page {
+class Mediagrid extends Page {
 
-	static $singular_name = 'Slideshow';
-	static $plural_name = 'Slideshows';
-	static $description = 'Page presenting a slideshow.';
+	static $singular_name = 'Mediagrid';
+	static $plural_name = 'Mediagrids';
+	static $description = 'Mediagrid for presenting images etc.';
 
 	static $db = array(
+		"Layout" => "Enum('masonry, fitRows, cellsByRow, masonryHorizontal, fitColumns', 'masonry')",
 	); 
 		
 	public static $has_many = array(
-		"SlideshowSlides" => "SlideshowSlide"
+		"MediagridItems" => "MediagridItem"
 	);
 	
 	function getCMSFields() {
@@ -19,10 +20,10 @@ class Slideshow extends Page {
 		$fields = parent::getCMSFields();
 
 
-		// Slideshow Gridfield
-	
+		// Mediagrid Gridfield
+
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create()->addComponents(
-			new Slideshow_TogglePublish()
+			new FrontpageSlideshow_TogglePublish()
 		);
 		
 		// Check if GridField Paginator module is installed and set it up
@@ -41,15 +42,19 @@ class Slideshow extends Page {
 			$gridFieldConfig->addComponent($sortableComponent);
 		}
 
-        $gridField = new GridField("SlideshowSlides", "Slides:", $this->SlideshowSlides(), $gridFieldConfig);
-		$fields->addFieldToTab("Root.SlideshowSlides", $gridField);
+        $gridField = new GridField("MediagridItems", "Items:", $this->MediagridItems(), $gridFieldConfig);
+		$fields->addFieldToTab("Root.MediagridItems", $gridField);
 		
+		// Additional text for Content
+
+		$fields->addFieldToTab('Root.Config', new TextField("Layout", _t('Content.LAYOUT','Layout style')));	
+
 		return $fields;
 	}
 
 }
  
-class Slideshow_Controller extends Page_Controller {
+class Mediagrid_Controller extends Page_Controller {
 
 	public static $allowed_actions = array (
 	);
