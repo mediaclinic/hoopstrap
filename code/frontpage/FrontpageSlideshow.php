@@ -75,13 +75,33 @@ class FrontpageSlideshow extends Page {
 		$fields = parent::getCMSFields();
 
 			// Slideshow Gridfield
-
-			$gridFieldConfig = GridFieldConfig_RelationEditor::create();
-			$gridFieldConfig->addComponents(
-				new GridFieldSortableRows("SortOrder"),
+		
+			$gridFieldConfig = GridFieldConfig::create()->addComponents(
+				new GridFieldToolbarHeader(),
+				new GridFieldFilterHeader(),
+				new GridFieldSortableHeader(),
+				new GridFieldDataColumns(),
+				new GridFieldEditButton(),
+				new GridFieldDetailForm(),
 				new FrontpageSlideshow_TogglePublish()
 			);
+			
+			// Check if GridField Paginator module is installed and set it up
+
+			if(class_exists('GridFieldPaginatorWithShowAll')){
+				$paginatorComponent = new GridFieldPaginatorWithShowAll(15);
+			}else{
+				$paginatorComponent = new GridFieldPaginator(15);
+			}
+			$gridFieldConfig->addComponent($paginatorComponent);
+
+			// Check if SortableGridField module is installed and set it up
 	
+			if(class_exists('GridFieldSortableRows')) {
+				$sortableComponent = new GridFieldSortableRows('SortOrder');
+				$gridFieldConfig->addComponent($sortableComponent);
+			}
+
 			$gridField = new GridField("FrontpageSlides", "Slides:", $this->FrontpageSlides(), $gridFieldConfig);
 			$fields->addFieldToTab("Root.FrontpageSlides", $gridField);
 	

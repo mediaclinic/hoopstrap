@@ -114,10 +114,11 @@
 	
 		// CREATE HOLDER PAGE CHECKER (FOR SUBMENU USE)
 		
-		public function InsideLayoutHolder() {
+		public function LayoutHolder() {
 	
 				switch($this->ClassName) { 
 				case 'LayoutHolder':
+				case 'ContentSlider':
 				return 'true'; 
 				break;
 				default: 
@@ -132,6 +133,7 @@
 				switch($this->ClassName) { 
 				case 'SliderHolder':
 				case 'CarouselHolder':
+				case 'ContentSlider':
 				return 'true'; 
 				break;
 				default: 
