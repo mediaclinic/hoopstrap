@@ -10,9 +10,11 @@ class MediagridItem extends DataObject {
 	static $db = array(	
 		"Heading" => "Text",
 		"Subtitle" => "Text",
+		"Name" => "Text",
 		"ItemDescription" => "HTMLText",
-		"ItemFilter" => "Enum('Cat1, Cat2, Cat3', 'Cat1')",
+		"Category" => "Enum('Category1, Category2, Category3', 'Category1')",
 		"ItemSort" => "Enum('Sort1, Sort2, Sort3', 'Sort1')",
+		"Span" => "Enum('span1, span2, span3, span4, span6', 'span3')",
 		"ButtonText" => "Text",
 		"SortOrder" => "Int",
 		"Published" => "boolean"
@@ -67,9 +69,10 @@ class MediagridItem extends DataObject {
 				$image_field
 			),
 			new Tab(
-				'Sorting',
-				new DropdownField('ItemFilter', _t('Content.ITEMFILTER','ItemFilter'),singleton('MediagridItem')->dbObject('ItemFilter')->enumValues()),
-				new DropdownField('ItemSort', _t('Content.ITEMSORT','ItemSort'),singleton('MediagridItem')->dbObject('ItemSort')->enumValues())
+				'Sorting and options',
+				new DropdownField('Category', _t('Content.Category','Category'),singleton('MediagridItem')->dbObject('Category')->enumValues()),
+				new DropdownField('ItemSort', _t('Content.ITEMSORT','ItemSort'),singleton('MediagridItem')->dbObject('ItemSort')->enumValues()),
+				new DropdownField('Span', _t('Content.SPAN','Span'),singleton('MediagridItem')->dbObject('Span')->enumValues())
 			)
 			
 		);

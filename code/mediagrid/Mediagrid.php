@@ -7,7 +7,7 @@ class Mediagrid extends Page {
 	static $description = 'Mediagrid for presenting images etc.';
 
 	static $db = array(
-		"Layout" => "Enum('masonry, fitRows, cellsByRow, masonryHorizontal, fitColumns', 'masonry')",
+		"Style" => "Enum('masonry, fitRows, cellsByRow, masonryHorizontal, fitColumns', 'masonry')"
 	); 
 		
 	public static $has_many = array(
@@ -23,7 +23,7 @@ class Mediagrid extends Page {
 		// Mediagrid Gridfield
 
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create()->addComponents(
-			new FrontpageSlideshow_TogglePublish()
+			new Mediagrid_TogglePublish()
 		);
 		
 		// Check if GridField Paginator module is installed and set it up
@@ -47,7 +47,7 @@ class Mediagrid extends Page {
 		
 		// Additional text for Content
 
-		$fields->addFieldToTab('Root.Config', new TextField("Layout", _t('Content.LAYOUT','Layout style')));	
+		$fields->addFieldToTab('Root.Config', new TextField("Style", _t('Content.LAYOUT','Layout style')));	
 
 		return $fields;
 	}
